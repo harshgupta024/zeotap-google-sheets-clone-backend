@@ -1,64 +1,67 @@
-**# Spreadsheet Web App - Frontend**
+#**Spreadsheet Web App - Backend**
 
-This is the **frontend** of a web application that mimics Google Sheets, providing a spreadsheet interface with mathematical and data quality functions.
+This is the **backend** for a spreadsheet web application that mimics Google Sheets. It handles user data, spreadsheet operations, and mathematical functions.
 
 ## 🚀 Features
 
-- Google Sheets-like UI with toolbar, formula bar, and grid structure.
-- Cell formatting options (bold, italic, font size, color).
+- REST API to handle spreadsheet data.
+- CRUD operations for spreadsheet rows and columns.
 - Mathematical functions: `SUM`, `AVERAGE`, `MAX`, `MIN`, `COUNT`.
 - Data quality functions: `TRIM`, `UPPER`, `LOWER`, `REMOVE_DUPLICATES`, `FIND_AND_REPLACE`.
-- Ability to add, delete, and resize rows/columns.
-- Real-time updates for formulas based on cell dependencies.
+- Data validation for numeric fields.
+- Supports local JSON storage (or MongoDB in the future).
 
 ## 🛠️ Tech Stack
 
-- **React.js**: For building the UI.
-- **React Hooks & Context API**: For state management.
-- **Tailwind CSS**: For styling.
-- **Axios**: For API communication with the backend.
-- **Local Storage**: For persisting user data.
+- **Node.js & Express.js**: For the backend API.
+- **MongoDB (optional)**: For future database integration.
+- **JSON Storage**: To persist data locally.
+- **CORS & dotenv**: To configure API security.
 
 ## 📂 Project Structure
 
 ```
-frontend/
-│—— src/
-│   ├─ api/                 # API calls
-│   ├─ components/          # UI components (spreadsheet, toolbar, formula bar)
-│   ├─ pages/               # Page components
-│   ├─ utils/               # Utility functions
-│   ├─ App.js               # Main App component
-│   ├─ index.js             # Entry point
-│   ├─ styles.css           # Global styles
-│—— public/                  # Static assets
+backend/
+│—— config/                  # Configuration files
+│—— controllers/             # Business logic for handling requests
+│—— models/                  # Data models (future MongoDB support)
+│—— routes/                  # API routes
+│—— sheets.json              # JSON file storing spreadsheet data
+│—— server.js                # Main backend server
 │—— package.json             # Dependencies
+│—— .env                     # Environment variables
 │—— README.md                # Documentation
 ```
 
 ## 📦 Installation & Setup
 
-1. Navigate to the frontend folder:
+1. Navigate to the backend folder:
    ```sh
-   cd frontend
+   cd backend
    ```
 2. Install dependencies:
    ```sh
    npm install
    ```
-3. Start the development server:
+3. Start the backend server:
    ```sh
    npm start
    ```
+4. The server runs at \`\`.
 
-## 💽 API Communication
+## 💽 API Endpoints
 
-The frontend interacts with the backend via **REST API calls** to fetch and store spreadsheet data.
+| Method | Endpoint          | Description                  |
+| ------ | ----------------- | ---------------------------- |
+| GET    | `/api/sheets`     | Fetch all spreadsheet data   |
+| POST   | `/api/sheets`     | Save a new spreadsheet entry |
+| PUT    | `/api/sheets/:id` | Update a spreadsheet cell    |
+| DELETE | `/api/sheets/:id` | Delete a spreadsheet entry   |
 
 ## ✨ Future Enhancements
 
-- Implement **drag-and-drop functionality** for cells.
-- Introduce **charts and graphs** for data visualization.
-- Support **Excel file import/export**.
+- Integrate **MongoDB for database storage**.
+- Implement **authentication & user sessions**.
+- Add **real-time collaboration** using WebSockets.
 
 ---
